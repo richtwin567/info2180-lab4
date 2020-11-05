@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Methods: *');
 
 $superheroes = [
     [
@@ -65,10 +65,37 @@ $superheroes = [
     ],
 ];
 
-?>
+$q = filter_var($_REQUEST['query'], FILTER_SANITIZE_STRING);
+$qhero = null;
 
-<ul>
-    <?php foreach ($superheroes as $superhero) : ?>
-        <li><?= $superhero['alias']; ?></li>
-    <?php endforeach; ?>
-</ul>
+foreach ($superheroes as $superhero) {
+    if ($superhero['name'] == $q or $superhero['alias'] == $q) {
+        $qhero = $superhero;
+    }
+}
+
+$info = '';
+if ($q) {
+    if ($qhero) {
+        $qhero['alias'] = strtoupper($qhero['alias']);
+        $qhero['name'] = strtoupper($qhero['name']);
+        $info = <<<EOD
+<h3>${qhero['alias']}</h3>
+<h4>A.K.A. ${qhero['name']}</h4>
+<br>
+<p>${qhero['biography']}</p>
+EOD;
+    } else {
+        $info = "<p class=\"fail\">SUPERHERO NOT FOUND</p>";
+    }
+} else {
+    $info .= "<ul>";
+    foreach ($superheroes as $superhero) {
+        $info .= "<li>${superhero['alias']}</li>";
+    }
+    $info .= "</ul>";
+
+}
+echo $info
+
+?>

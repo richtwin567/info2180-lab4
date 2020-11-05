@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INFO2180 LAB4</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
+
 <body>
-    <header id="banner">
-        <h1>Avengers Character Search</h1>
-    </header>
-    <div class="container"><button id="search-btn">search</button></div>
-    <footer>Copyright &copy; 2020, Anakai Richards</footer>
+    <div id="container">
+        <header id="banner">
+            <h1>AVENGERS CHARACTER SEARCH</h1>
+        </header>
+        <main>
+            <div id="search-area">
+                <p>Search by Full Name or Alias</p>
+                <form id="heroes-search">
+                    <input type="text" name="query" id="search-box" placeholder="eg. Captain America or Steve Rodgers"><button type="submit" id="search-btn">Search</button>
+                </form>
+            </div>
+            <div id="result-area">
+                <h2>RESULT</h2>
+                <hr>
+                <div id="result"></div>
+            </div>
+        </main>
+        <footer>Copyright &copy; 2020, Anakai Richards</footer>
+    </div>
 </body>
+
 </html>
