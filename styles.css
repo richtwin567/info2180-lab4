@@ -17,7 +17,6 @@
 #container {
     background-color: var(--page-bg-colour);
     height: 100%;
-    position: absolute;
     width: 100%;
 }
 
@@ -36,10 +35,8 @@ main {
 
 footer {
 	padding: 2%;
-	height: 3em;
+	height: 5em;
     width: 100%;
-    position: absolute;
-    bottom: 0;
 	background-color: var(--on-light-text-colour);
 	color: var(--on-dark-text-colour);
 }

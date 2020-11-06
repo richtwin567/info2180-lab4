@@ -65,7 +65,7 @@ $superheroes = [
     ],
 ];
 
-$q = filter_var($_REQUEST['query'], FILTER_SANITIZE_STRING);
+$q = filter_var($_REQUEST['query'], FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
 $qhero = null;
 
 foreach ($superheroes as $superhero) {
